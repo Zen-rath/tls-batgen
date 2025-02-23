@@ -75,12 +75,12 @@ Ship File Parsing & Layer Creation:
 - Entities Removal in Habitation Subtree: In any node with tag “Habitation” (case‑insensitive), recursively removes any attribute named “Entities” from all of its descendant nodes, regardless of their tag.
 
 - Positional Attributes: For each ship layer:
--- For FriendlyShip layers: Sets “Offset.x” to 0, “Rotation” to 0, and “Offset.y” based on a friendly counter (using a calculated offset).
--- For HostileShip layers: Sets “Offset.x” to 2000, “Rotation” to 180, and “Offset.y” based on a hostile counter.
+	- For FriendlyShip layers: Sets “Offset.x” to 0, “Rotation” to 0, and “Offset.y” based on a friendly counter (using a calculated offset).
+	- For HostileShip layers: Sets “Offset.x” to 2000, “Rotation” to 180, and “Offset.y” based on a hostile counter.
 
 - ShipAI Sub-node
--- Appends a “ShipAI” sub-node to each ship layer with attributes: “Strategy” set from the filename, “Engaged” set to true, “Broadside” set to -1
--- LayerOrders Node: For each appended ship layer, creates or updates a top-level “LayerOrders” node with attributes: Scope = Layer, Salvage = false, Gather = false, Mining = false, ExteriorWork = false, Id = (the new unique ID of the appended ship)
--- Validation: Checks that at least one friendly and one hostile ship have been appended; if not, the script exits with an error.
+  	- Appends a “ShipAI” sub-node to each ship layer with attributes: “Strategy” set from the filename, “Engaged” set to true, “Broadside” set to -1
+  	- LayerOrders Node: For each appended ship layer, creates or updates a top-level “LayerOrders” node with attributes: Scope = Layer, Salvage = false, Gather = false, Mining = false, ExteriorWork = false, Id = (the new unique ID of the appended ship)
+	- Validation: Checks that at least one friendly and one hostile ship have been appended; if not, the script exits with an error.
 
 - Output Filename: Writes the output save-game file with a filename derived from the input save-game file, appended with “-start”.
